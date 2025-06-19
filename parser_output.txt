@@ -1,0 +1,88 @@
+Checking file '1.txt':
+
+Line 1: criminal(X) :- american(X), weapon(Y), nation(Z), hostile(Z), sells(X,Z,Y). 
+Line 2: owns(nono,msl(nono)). missile(msl(nono)). 
+Line 3: sells(west,nono,M) :- owns(nono,M), missile(M). 
+Line 4: weapon(W) :- missile(W).
+Line 5: hostile(H) :- enemy(H,america). 
+Line 6: american(west). 
+Line 7: nation(nono). enemy(nono,america). 
+Line 8: nation(america).
+Line 9: ?- criminal(Who).
+
+Valid Program: True
+___________________________________________________________
+
+Checking file '2.txt':
+
+Line 1: location(object(candle,red,small,1), kitchen). 
+Line 2: location(object(apple,red,small,1), kitchen). 
+Line 3: location(object(apple,green,small,1), kitchen). 
+Line 4: location(object(table,blue,big,50), kitchen). 
+Line 5: ?- location(object(_name,red,_,_), kitchen).
+
+Valid Program: True
+___________________________________________________________
+
+Checking file '3.txt':
+
+Line 1: num(0). 
+Line 2: num(s(N)) :- num(N). 
+Line 3: num_plus(0,N,N). 
+Line 4: num_plus(s(M),N,P) :- num_plus(M,s(N),P). 
+Line 5: ?- num( s(s(s(0))) ).
+
+Valid Program: True
+___________________________________________________________
+
+Checking file '4.txt':
+
+Line 1: say(N, From, To) :- write('move disc '), write(N), write(' from '), write(From), write(' to '), write(To), nl. 
+Line 2: hanoi(N) :- move(N, left, center, right). move(0, _, _, _).
+Line 3: move(N, From, To, Using) :- is(M, N-1), move(M, From, Using, To), say(N, From, To), move(M, Using, To, From).
+Line 4: ?- hanoi(3).
+
+Error Found on line 3 at Character 29 : Expected ) Found 'N' instead.
+Valid Program: False
+___________________________________________________________
+
+Checking file '5.txt':
+
+Line 1: factorial(N,F) :- factorial(N,1,F).
+Line 2: factorial(0,F,F).
+Line 3: factorial(N,A,F) :- A1 is N*A, N1 is N-1, factorial(N1,A1,F).
+Line 4: ?- factorial(100,Result).
+
+Error Found on line 3 at Character 19 : Expected atom (Starting with small letter or string) Found 'A' instead.
+Valid Program: False
+___________________________________________________________
+
+Checking file '6.txt':
+
+Line 1: mergeSort([], []).
+Line 2: mergeSort([A], [A]).
+Line 3: mergeSort([A, B | Rest], S) :- divide([A, B | Rest], L1, L2),
+Line 4: mergeSort(L1, S1),
+Line 5: mergeSort(L2, S2),
+Line 6: merge(S1, S2, S).
+Line 7: divide([], [], []). divide([A], [A], []).
+Line 8: divide([A, B | R], [A | Ra], [B | Rb]) :- divide(R, Ra, Rb).
+Line 9: merge(A, [], A). merge([], B, B).
+Line 10: merge([A | Ra], [B | Rb], [A | M]) :- A =< B, merge(Ra, [B | Rb], M).
+Line 11: merge([A | Ra], [B | Rb], [B | M]) :- A > B, merge([A | Ra], Rb, M).
+Line 12: ?- mergeSort([3, 4, 8, 0, 1, 9, 5, 6], Sorted).
+
+Error Found on line 1 at Character 34 : Expected Term(start with an alphabet/a number) Found '[' instead.
+Error Found on line 2 at Character 11 : Expected Term(start with an alphabet/a number) Found '[' instead.
+Error Found on line 3 at Character 11 : Expected Term(start with an alphabet/a number) Found '[' instead.
+Error Found on line 7 at Character 8 : Expected Term(start with an alphabet/a number) Found '[' instead.
+Error Found on line 7 at Character 25 : Expected Term(start with an alphabet/a number) Found '[' instead.
+Error Found on line 8 at Character 8 : Expected Term(start with an alphabet/a number) Found '[' instead.
+Error Found on line 9 at Character 9 : Expected Term (start with an alphabet/a number) Found '[' instead.
+Error Found on line 9 at Character 21 : Expected Term(start with an alphabet/a number) Found '[' instead.
+Error Found on line 10 at Character 7 : Expected Term(start with an alphabet/a number) Found '[' instead.
+Error Found on line 11 at Character 7 : Expected Term(start with an alphabet/a number) Found '[' instead.
+Error Found on line 12 at Character 13 : Expected Term(start with an alphabet/a number) Found '[' instead.
+Valid Program: False
+___________________________________________________________
+
